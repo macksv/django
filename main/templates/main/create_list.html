@@ -6,7 +6,7 @@
 {% block content%}
 <h1>Create a New List</h1>
 <p>
-    <form method="post" action="/create_list/">
+    <form autocomplete="off" method="post" action="/create_list/">
         {%csrf_token%}
         {{ form|crispy }}
         <br/>
