@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block title %} User List {% endblock%}
+
+{% block content%}
+    <p>   
+        <br/><br/>
+    {% for user_list in list %}
+        <a href="/edit_items/{{ user_list.id }}"> {{ user_list.id }} - {{user_list.name}}</a> <br/>
+        <!-- <h2>{{user_list.id}} - {{user_list.name}}</h2>  -->
+    {% endfor %}
+    </p>        
+{% endblock %}

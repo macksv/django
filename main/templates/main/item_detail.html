@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+
+{% block title %} Item List {% endblock%}
+
+{% block content%}
+
+    <p>  
+        Detail Item for List: {{list_name}}
+    </p>
+    <p>
+        <table class="table table-striped">
+            <tr>
+                <th> Item Text</th>
+                <th> Target Date</th>
+                <th>Completed</th>
+            </tr>
+            <tr>
+                <td>{{ object.text }}</td>
+                <td>{{ object.target_date }}</td>
+                {% if object.complete %}
+                    <td><input type="checkbox" , value="clicked" , name="c{{object.id}}" checked disabled="disabled"/></td> 
+                {% else %}
+                    <td><input type="checkbox" , value="clicked" , name="c{{object.id}}" disabled="disabled" /></td> 
+                {% endif %}
+            </tr>
+        </table>
+    </p>
+{% endblock %}

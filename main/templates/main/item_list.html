@@ -1,0 +1,37 @@
+{% extends "main/base.html" %}
+
+{% block title %} Item List {% endblock%}
+
+{% block content%}
+    <p>  
+        <h2>Item list for {{list_name}}</h2>
+        <br/><br/>
+
+        <table class="table table-striped">
+            <tr>
+                <th> Item Text</th>
+                <th> Target Date</th>
+                <th>Completed</th>
+                <th>Action</th>
+            </tr>
+            
+            {% for item_list in object_list %}
+                <tr>    
+                    <td>{{ item_list.text }}</td>
+                    <td>{{ item_list.target_date }}</td>
+                    {% if item_list.complete %}
+                        <td><input type="checkbox" , value="clicked" , name="c{{item_list.id}}" checked disabled="disabled"/></td> 
+                    {% else %}
+                        <td><input type="checkbox" , value="clicked" , name="c{{item_list.id}}" disabled="disabled" /></td> 
+                    {% endif %}
+                    <td><a href="/update_item/{{ item_list.id }}"" >Edit</a>
+                        <a href="/delete_item/{{ item_list.id }}"" >Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            
+        </table>
+        <br/>
+        <a class="btn btn-outline-primary" href="/create_item/{{ list_id }}"" >Create Item</a> 
+    </p>        
+{% endblock %}

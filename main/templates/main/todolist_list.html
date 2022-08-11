@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+
+{% block content%}
+    <p>   
+    <h1>My Lists</h1>
+    <br/>
+    <table class="table table-striped">
+        <tr>
+            <th> List Name</th>
+        </tr>
+
+    <ol>
+    {% for user_list in object_list %}
+        <tr>    
+            <td>
+                <li><a href="/show_items/{{ user_list.id }}"> {{user_list.name}}</a></li>
+            </td>
+    {% endfor %}
+    </ol>
+    </p>        
+{% endblock %}

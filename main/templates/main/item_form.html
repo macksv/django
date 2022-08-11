@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content%}
+<div>
+    
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Item</legend>
+            
+            <!-- {{ form|crispy }} -->
+            <div class="col-12"> {{ form.text|as_crispy_field}}</div> <br/>
+            <div class="col-2"> {{ form.target_date|as_crispy_field }}</div> <br/>
+            <div class="col-6"> {{ form.complete|as_crispy_field }}</div><br/>
+        </fieldset>
+        <br/>    
+        <div class="form-group">
+            <button class="btn btn-outline-primary" type="submit">Submit</button>
+            <a class="btn btn-outline-secondary" href="{% url 'items_list' list_id %}">Cancel</a>
+        </div>
+        
+    </form>
+ 
+</div>
+{% endblock %}
