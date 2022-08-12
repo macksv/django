@@ -1,2 +1,2 @@
 # django
-This is a demo of a fully functioning simple website using Python Django.
+This is a demo of a simple ToDoList app using Python Django.
